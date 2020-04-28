@@ -28,7 +28,7 @@
 
 <p>Click the "Calculate" button to predict your chance of admission.</p>
 
-<button onclick="myFunction()">Calculate</button>
+<button onclick="verify()">Calculate</button>
 
 <p id="programs"></p>
 <p id="adjustedAverage"></p>
@@ -39,6 +39,18 @@
 
 
 <script>
+function verify() {
+  if(!isNaN(programGroup))
+  {
+    myFunction();
+  }
+  else
+  {
+    
+    alert("Your input is not a number");
+  }
+}
+ 
 function myFunction() {
   var programGroup = parseInt(document.getElementById("programGroup").value);
   var average = parseFloat(document.getElementById("average").value);
