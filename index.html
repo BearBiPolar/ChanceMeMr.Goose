@@ -39,16 +39,34 @@
 
 
 <script>
+  var programGroup = parseInt(document.getElementById("programGroup").value);
+  var average = parseFloat(document.getElementById("average").value);
+  var adjustment = parseFloat(document.getElementById("adjustment").value);
+  var aif = parseFloat(document.getElementById("aif").value);
+  var interview = parseFloat(document.getElementById("interview").value);
 function verify() {
-  if(!isNaN(programGroup))
-  {
-    myFunction();
-  }
-  else
-  {
-    
-    alert("Your input is not a number");
-  }
+  
+    if(isNaN(programGroup))
+    {
+    }
+    else if(isNaN(average))
+    {
+    }
+    else if(isNaN(adjustment))
+    {
+    }
+    else if(isNaN(aif))
+    {
+    }
+    else if(isNaN(interview))
+    {
+    }
+    else
+    {
+
+      myFunction();
+    }
+  
 }
  
 function myFunction() {
