@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<h1>Chance Me Mr. Goose: </h1>
+
+<h2>A Waterloo Engineering Admission Chance Calculator</h2>
+
+
+
+<p>What is your program group? (1-3)</p>
+<p>1: Biomedical and Software</p>
+<p>2: Computer, Electrical, Mechanical, Mechatronics, and Systems Design	
+</p>
+<p>3: Architectural, Chemical, Civil, Environmental, Geological, Management, and Nanotechnology	
+</p>
+
+<input type="int" id="programGroup" size="50" value="What is your program group? (1-3)">
+<p>What is your high school average? (0-100)</p>
+<input type="double" id="average" size="50" value="What is your high school average? (0-100)">
+<p>What is your high school adjustment factor? (9.9-27.1; 16.1 is average)</p>
+<input type="double" id="adjustment" size="50" value="What is your high school adjustment factor? (9.9-27.1; 16.1 is average)">
+<p>What is your estimated AIF score? (0-5; average is 2)</p>
+<input type="double" id="aif" size="50" value="What is your estimated AIF score? (0-5; average is 2)">
+<p>What is your estimated interview score? (0-3; average is 2)</p>
+<input type="double" id="interview" size="50" value="What is your estimated interview score? (0-3; average is 2)">
+
+<p>Click the "Calculate" button to predict your chance of admission.</p>
+
+<button onclick="myFunction()">Calculate</button>
+
+<p id="programs"></p>
+<p id="adjustedAverage"></p>
+<p id="realAdjustedAverage"></p>
+<p id="percent"></p>
+<img src="chances.png" alt="Admission Graph">
+
+
+<script>
+function myFunction() {
+  var programGroup = parseInt(document.getElementById("programGroup").value);
+  var average = parseFloat(document.getElementById("average").value);
+  var adjustment = parseFloat(document.getElementById("adjustment").value);
+  var aif = parseFloat(document.getElementById("aif").value);
+  var interview = parseFloat(document.getElementById("interview").value);
+  
+  var adjustedAverage = average - adjustment + 16.1;
+  var real = adjustedAverage + aif + interview - 4;
+  var chance = 0;
+  
+  /*private*/ this.programGroups = ["Biomedical and Software", "Computer, Electrical, Mechanical, Mechatronics, and Systems Design", "Architectural, Chemical, Civil, Environmental, Geological, Management, and Nanotechnology"];
+
+document.getElementById("programs").innerHTML = "Your selected program group: " + this.programGroups[programGroup - 1];
+  
+  document.getElementById("adjustedAverage").innerHTML = "Your Adjusted Admission Average is: " + adjustedAverage;
+  
+  document.getElementById("realAdjustedAverage").innerHTML = "Your Adjusted Admission Average including AIF and Interview is: " + real;
+  
+  
+  
+  if(real > 100)
+  {
+  	real = 100;
+  }
+  
+  var x = real;
+  switch (programGroup) {
+                    case 1:
+                        chance = -9.91665E-7 * Math.pow(x, 6) + 7.12766582E-4 * Math.pow(x, 5) - 0.199337541744 * Math.pow(x, 4) + 28.477751641706 * Math.pow(x, 3) - 2221.06905579802 * Math.pow(x, 2) + 90365.708229188 * x - 1505792.89323006;
+                        break;
+                    case 2:
+                        chance = 7.927378E-6 * Math.pow(x, 6) - 0.003815953092 * Math.pow(x, 5) + 0.753733211049 * Math.pow(x, 4) - 77.9121684881 * Math.pow(x, 3) + 4421.4707888 * Math.pow(x, 2) - 129515.4702471 * x + 1507941.8835368;
+                        break;
+                    case 3:
+                        chance = 5.942718E-4 * Math.pow(x, 4) - 0.2085009655 * Math.pow(x, 3) + 27.0594414776 * Math.pow(x, 2) - 1532.9010505906 * x + 31865.616776;
+                        break;
+                    default:
+                        break;
+                }
+                
+                
+                chance = chance * 10;
+                chance = Math.round(chance);
+                chance = chance / 10;
+                
+                  document.getElementById("percent").innerHTML = "Your Chance of Admission* is: " + chance + "%";
+                  
+                                  
+
+}
+</script>
+
+</body>
+</html>
