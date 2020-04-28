@@ -46,7 +46,9 @@ function myFunction() {
   var interview = parseFloat(document.getElementById("interview").value);
   
   var adjustedAverage = average - adjustment + 16.1;
+  adjustedAverage = round(adjustedAverage);
   var real = adjustedAverage + aif + interview - 4;
+  real = round(real);
   var chance = 0;
   
   /*private*/ this.programGroups = ["Biomedical and Software", "Computer, Electrical, Mechanical, Mechatronics, and Systems Design", "Architectural, Chemical, Civil, Environmental, Geological, Management, and Nanotechnology"];
@@ -79,16 +81,22 @@ document.getElementById("programs").innerHTML = "Your selected program group: " 
                         break;
                 }
                 
+                chance = round(chance);
                 
-                chance = chance * 10;
-                chance = Math.round(chance);
-                chance = chance / 10;
                 
                   document.getElementById("percent").innerHTML = "Your Chance of Admission* is: " + chance + "%";
                   
                                   
 
 }
+
+function round(chance)
+{
+chance = chance * 10;
+                chance = Math.round(chance);
+                chance = chance / 10;
+                return chance;
+                }
 </script>
 
 </body>
