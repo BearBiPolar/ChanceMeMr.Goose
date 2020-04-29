@@ -44,7 +44,7 @@
 
         <p>Click the "Calculate" button to predict your chances of admission.</p>
 
-        <button onclick="verify()">Calculate</button>
+        <button onclick="myFunction()">Calculate</button>
 
         <h4 id="programs"></h4>
         <h4 id="adjustedAverage"></h4>
@@ -59,123 +59,132 @@
 
             function verify() {
 
-                var programGroup = parseInt(document.getElementById("programGroup").value);
-                var average = parseFloat(document.getElementById("average").value);
-                var adjustment = parseFloat(document.getElementById("adjustment").value);
-                var aif = parseFloat(document.getElementById("aif").value);
-                var interview = parseFloat(document.getElementById("interview").value);
 
-
-                if(programGroup < 0 || programGroup > 3)
+                var pro = parseInt(document.getElementById("programGroup").value);
+                var av = document.getElementById("average").value;
+                var ad = parseFloat(document.getElementById("adjustment").value);
+                var ai = parseFloat(document.getElementById("aif").value);
+                var view = parseFloat(document.getElementById("interview").value);
+                if(pro < 0 || pro > 3)
                 {
                     alert("Error: Your program group has to be between 0-3");
-
                 }
-                else if(isNaN(programGroup) || programGroup.value.length == 0)
+                else if(isNaN(pro) || pro.value.length == 0)
                 {
-
-
                     alert("Error: Your program group is not a valid input");
-
                 }
-                else if(average < 0 || average > 100)
+                /*
+                else if(av < 0 || av > 100)
                 {
                     alert("Error: Your average has to be between 0-100");
-                    else if(isNaN(average))
-                    {
-                        alert("Error: Your high school average is not a valid input");
-
-                    }
-                        else if(adjustmentFactor < 0 || adjustmentFactor > 30)
-                        {
-                            alert("Error: Your adjustment factor has to be between 0-30");
-                            else if(isNaN(adjustment))
-                            {
-                                alert("Error: Your adjustment factor is not a valid input");
-
-                            }
-                                else if(aif < 0 || aif > 5)
-                                {
-                                    alert("Error: Your AIF Score has to be between 0-5");
-                                    else if(isNaN(aif))
-                                    {
-                                        alert("Error: Your AIF Score is not a valid input");
-
-                                    }
-                                        else if(interview < 0 || interview > 3)
-                                        {
-                                            alert("Error: Your Interview Score has to be between 0-3");
-                                            else if(isNaN(interview))
-                                            {
-                                                alert("Error: Your Interview Score is not a valid input");
-                                            }
-                                                else
-                                                {
-
-                                                    myFunction();
-                                                }
-
-                                        }
-
-                                    function myFunction() {
-                                        var programGroup = parseInt(document.getElementById("programGroup").value);
-                                        var average = parseFloat(document.getElementById("average").value);
-                                        var adjustment = parseFloat(document.getElementById("adjustment").value);
-                                        var aif = parseFloat(document.getElementById("aif").value);
-                                        var interview = parseFloat(document.getElementById("interview").value);
-
-                                        var adjustedAverage = average - adjustment + 16.1;
-                                        adjustedAverage = round(adjustedAverage);
-                                        var real = adjustedAverage + aif + interview - 4;
-                                        real = round(real);
-                                        var chance = 0;
-
-                                        /*private*/ this.programGroups = ["Biomedical and Software", "Computer, Electrical, Mechanical, Mechatronics, and Systems Design", "Architectural, Chemical, Civil, Environmental, Geological, Management, and Nanotechnology"];
-
-                                        document.getElementById("programs").innerHTML = "Your selected program group: " + this.programGroups[programGroup - 1];
-
-                                        document.getElementById("adjustedAverage").innerHTML = "Your Adjusted Admission Average is: " + adjustedAverage;
-
-                                        document.getElementById("realAdjustedAverage").innerHTML = "Your Adjusted Admission Average including AIF and Interview is: " + real;
+                }
+                else if(isNaN(av) || av.value.length == 0)
+                {
+                    alert("Error: Your high school average is not a valid input");
+                }
+                else if(ad < 0 || ad > 30)
+                {
+                    alert("Error: Your adjustment factor has to be between 0-30");
+                }
+                else if(isNaN(ad) || ad.value.length == 0)
+                {
+                    alert("Error: Your adjustment factor is not a valid input");
+                }
+                else if(ai < 0 || ai > 5)
+                {
+                    alert("Error: Your AIF Score has to be between 0-5");
+                }
+                else if(isNaN(ai) || ai.value.length == 0)
+                {
+                    alert("Error: Your AIF Score is not a valid input");
+                }
+                else if(view < 0 || view > 3)
+                {
+                    alert("Error: Your Interview Score has to be between 0-3");
+                }
+                else if(isNaN(view) || view.value.length == 0 )
+                {
+                    alert("Error: Your Interview Score is not a valid input");
+                }
+                */
+                else
+                {
+                    myFunction();
+                }
 
 
 
-                                        if(real > 100)
-                                        {
-                                            real = 100;
-                                        }
-
-                                        var x = real;
-                                        switch (programGroup) {
-                                            case 1:
-                                                chance = -9.91665E-7 * Math.pow(x, 6) + 7.12766582E-4 * Math.pow(x, 5) - 0.199337541744 * Math.pow(x, 4) + 28.477751641706 * Math.pow(x, 3) - 2221.06905579802 * Math.pow(x, 2) + 90365.708229188 * x - 1505792.89323006;
-                                                break;
-                                            case 2:
-                                                chance = 7.927378E-6 * Math.pow(x, 6) - 0.003815953092 * Math.pow(x, 5) + 0.753733211049 * Math.pow(x, 4) - 77.9121684881 * Math.pow(x, 3) + 4421.4707888 * Math.pow(x, 2) - 129515.4702471 * x + 1507941.8835368;
-                                                break;
-                                            case 3:
-                                                chance = 5.942718E-4 * Math.pow(x, 4) - 0.2085009655 * Math.pow(x, 3) + 27.0594414776 * Math.pow(x, 2) - 1532.9010505906 * x + 31865.616776;
-                                                break;
-                                            default:
-                                                break;
-                                        }
-
-                                        chance = round(chance);
+            }
 
 
-                                        document.getElementById("percent").innerHTML = "Your Chance of Admission* is: " + chance + "%";
+            function myFunction() {
+                var programGroup = -1;
+                var average = -1;
+                var adjustment = -1;
+                var aif = -1;
+                var interview = -1;
+
+
+                programGroup = parseInt(document.getElementById("programGroup").value);
+                average = parseFloat(document.getElementById("average").value);
+                adjustment = parseFloat(document.getElementById("adjustment").value);
+                aif = parseFloat(document.getElementById("aif").value);
+                interview = parseFloat(document.getElementById("interview").value);
+
+                var adjustedAverage = average - adjustment + 16.1;
+                adjustedAverage = round(adjustedAverage);
+                var real = adjustedAverage + aif + interview - 4;
+                real = round(real);
+                var chance = 0;
+
+                /*private*/ this.programGroups = ["Biomedical and Software", "Computer, Electrical, Mechanical, Mechatronics, and Systems Design", "Architectural, Chemical, Civil, Environmental, Geological, Management, and Nanotechnology"];
+
+
+                document.getElementById("programs").innerHTML = "Your selected program group: " + this.programGroups[programGroup - 1];
+
+                document.getElementById("adjustedAverage").innerHTML = "Your Adjusted Admission Average is: " + adjustedAverage;
+
+                document.getElementById("realAdjustedAverage").innerHTML = "Your Adjusted Admission Average including AIF and Interview is: " + real;
+
+                if(real > 100)
+                {
+                    real = 100;
+                }
+
+                var x = real;
+                switch (programGroup) {
+                    case 1:
+                        chance = -9.91665E-7 * Math.pow(x, 6) + 7.12766582E-4 * Math.pow(x, 5) - 0.199337541744 * Math.pow(x, 4) + 28.477751641706 * Math.pow(x, 3) - 2221.06905579802 * Math.pow(x, 2) + 90365.708229188 * x - 1505792.89323006;
+                        break;
+                    case 2:
+                        chance = 7.927378E-6 * Math.pow(x, 6) - 0.003815953092 * Math.pow(x, 5) + 0.753733211049 * Math.pow(x, 4) - 77.9121684881 * Math.pow(x, 3) + 4421.4707888 * Math.pow(x, 2) - 129515.4702471 * x + 1507941.8835368;
+                        break;
+                    case 3:
+                        chance = 5.942718E-4 * Math.pow(x, 4) - 0.2085009655 * Math.pow(x, 3) + 27.0594414776 * Math.pow(x, 2) - 1532.9010505906 * x + 31865.616776;
+                        break;
+                    default:
+                        break;
+                }
+
+                chance = round(chance);
+                if(chance > 100)
+                    chance = 100;
+                else if(chance < 0)
+                    chance = 0;
+
+                document.getElementById("percent").innerHTML = "Your Chance of Admission* is: " + chance + "%";
 
 
 
-                                    }
+            }
 
-                                    function round(chance)
-                                    {
-                                        chance = chance * 10;
-                                        chance = Math.round(chance);
-                                        chance = chance / 10;
-                                        return chance;
-                                    }
+            function round(chance)
+            {
+                chance = chance * 10;
+                chance = Math.round(chance);
+                chance = chance / 10;
+                return chance;
+            }
         </script>
 
     </body>
