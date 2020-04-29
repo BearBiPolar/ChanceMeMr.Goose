@@ -132,7 +132,7 @@
                 programGroup = parseInt(document.getElementById("programGroup").value);
                 x = programGroup;
                 try { 
-                    if(x == "")  throw "empty";
+                    if(x === "")  throw "empty";
                     if(isNaN(x)) throw "not a number";
                     x = Number(x);
                     if(x < 0)  throw "too low";
@@ -147,7 +147,7 @@
                     average = parseFloat(document.getElementById("average").value);
                     x = average;
                     try { 
-                        if(x == "")  throw "empty";
+                        if(x === "")  throw "empty";
                         if(isNaN(x)) throw "not a number";
                         x = Number(x);
                         if(x < 0)  throw "too low";
@@ -195,7 +195,7 @@
                     interview = parseFloat(document.getElementById("interview").value);
                     x = interview;
                     try { 
-                        if(x == "")  throw "empty";
+                        if(x === "")  throw "empty";
                         if(isNaN(x)) throw "not a number";
                         x = Number(x);
                         if(x < 0)  throw "too low";
