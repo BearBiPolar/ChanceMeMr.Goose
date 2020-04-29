@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>GETTING STARTED WITH BRACKETS</title>
-        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <title>Chance Me Mr. Goose</title>
+        <meta name="description" content="A Waterloo Engineering Admission Chance Calculator.">
         <link rel="stylesheet" href="main.css">
     </head>
 <body>
-  
 
 
 <h1>Chance Me Mr. Goose: &#129414 &#129442</h1>
@@ -41,7 +40,7 @@
 
 <p>Click the "Calculate" button to predict your chances of admission.</p>
 
-<button onclick="myFunction()">Calculate</button>
+<button onclick="verify()">Calculate</button>
 
 <h4 id="programs"></h4>
 <h4 id="adjustedAverage"></h4>
@@ -54,29 +53,62 @@
 <script>
   
 function verify() {
-  /*
-    if(isNaN(programGroup))
+  
+  	var programGroup = parseInt(document.getElementById("programGroup").value);
+  var average = parseFloat(document.getElementById("average").value);
+  var adjustment = parseFloat(document.getElementById("adjustment").value);
+  var aif = parseFloat(document.getElementById("aif").value);
+  var interview = parseFloat(document.getElementById("interview").value);
+  
+  	if(programGroup < 0 || programGroup > 3)
+        {
+            	alert("Error: Your program group has to be between 0-3");
+
+        }
+    else if(isNaN(programGroup))
     {
+    	
+        
+    	alert("Error: Your program group is not a valid input");
+        
     }
+    else if(average < 0 || average > 100)
+        {
+            	alert("Error: Your average has to be between 0-100");
     else if(isNaN(average))
     {
+    	alert("Error: Your high school average is not a valid input");
+
     }
+    else if(adjustmentFactor < 0 || adjustmentFactor > 30)
+        {
+            	alert("Error: Your adjustment factor has to be between 0-30");
     else if(isNaN(adjustment))
     {
+    	alert("Error: Your adjustment factor is not a valid input");
+
     }
+    else if(aif < 0 || aif > 5)
+        {
+            	alert("Error: Your AIF Score has to be between 0-5");
     else if(isNaN(aif))
     {
+    	alert("Error: Your AIF Score is not a valid input");
+
     }
+    else if(interview < 0 || interview > 3)
+        {
+            	alert("Error: Your Interview Score has to be between 0-3");
     else if(isNaN(interview))
     {
+    	alert("Error: Your Interview Score is not a valid input");
     }
     else
     {
 
       myFunction();
     }
-  */
-  myFunction();
+  
 }
  
 function myFunction() {
