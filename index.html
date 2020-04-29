@@ -163,7 +163,7 @@
                     adjustment = parseFloat(document.getElementById("adjustment").value);
                     x = adjustment;
                     try { 
-                        if(x == "")  throw "empty";
+                        if(x === "")  throw "empty";
                         if(isNaN(x)) throw "not a number";
                         x = Number(x);
                         if(x < 0)  throw "too low";
@@ -179,7 +179,7 @@
                     aif = parseFloat(document.getElementById("aif").value);
                     x = aif;
                     try { 
-                        if(x == "")  throw "empty";
+                        if(x === "")  throw "empty";
                         if(isNaN(x)) throw "not a number";
                         x = Number(x);
                         if(x < 0)  throw "too low";
