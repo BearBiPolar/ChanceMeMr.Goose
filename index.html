@@ -117,9 +117,6 @@
                 {
                     myFunction();
                 }
-
-
-
             }
 
 
@@ -129,56 +126,131 @@
                 var adjustment = -1;
                 var aif = -1;
                 var interview = -1;
+                var valid = true;
 
 
                 programGroup = parseInt(document.getElementById("programGroup").value);
-                average = parseFloat(document.getElementById("average").value);
-                adjustment = parseFloat(document.getElementById("adjustment").value);
-                aif = parseFloat(document.getElementById("aif").value);
-                interview = parseFloat(document.getElementById("interview").value);
-
-                var adjustedAverage = average - adjustment + 16.1;
-                adjustedAverage = round(adjustedAverage);
-                var real = adjustedAverage + aif + interview - 4;
-                real = round(real);
-                var chance = 0;
-
-                /*private*/ this.programGroups = ["Biomedical and Software", "Computer, Electrical, Mechanical, Mechatronics, and Systems Design", "Architectural, Chemical, Civil, Environmental, Geological, Management, and Nanotechnology"];
-
-                document.getElementById("programs").innerHTML = "Your selected program group: " + this.programGroups[programGroup - 1];
-
-                document.getElementById("adjustedAverage").innerHTML = "Your Adjusted Admission Average is: " + adjustedAverage;
-
-                document.getElementById("realAdjustedAverage").innerHTML = "Your Adjusted Admission Average including AIF and Interview is: " + real;
-
-                if(real > 100)
+                x = programGroup;
+                try { 
+                    if(x == "")  throw "empty";
+                    if(isNaN(x)) throw "not a number";
+                    x = Number(x);
+                    if(x < 0)  throw "too low";
+                    if(x > 3)   throw "too high";
+                }
+                catch(err) {
+                    alert("Program group number is " + err);
+                    valid = false;
+                }
+                if(valid)
                 {
-                    real = 100;
+                    average = parseFloat(document.getElementById("average").value);
+                    x = average;
+                    try { 
+                        if(x == "")  throw "empty";
+                        if(isNaN(x)) throw "not a number";
+                        x = Number(x);
+                        if(x < 0)  throw "too low";
+                        if(x > 100)   throw "too high";
+                    }
+                    catch(err) {
+                        alert("Average is " + err);
+                        valid = false;
+                    }
+                }
+                if(valid)
+                {
+                    adjustment = parseFloat(document.getElementById("adjustment").value);
+                    x = adjustment;
+                    try { 
+                        if(x == "")  throw "empty";
+                        if(isNaN(x)) throw "not a number";
+                        x = Number(x);
+                        if(x < 0)  throw "too low";
+                        if(x > 30)   throw "too high";
+                    }
+                    catch(err) {
+                        alert("Adjustment is " + err);
+                        valid = false;
+                    }
+                }
+                if(valid)
+                {
+                    aif = parseFloat(document.getElementById("aif").value);
+                    x = aif;
+                    try { 
+                        if(x == "")  throw "empty";
+                        if(isNaN(x)) throw "not a number";
+                        x = Number(x);
+                        if(x < 0)  throw "too low";
+                        if(x > 5)   throw "too high";
+                    }
+                    catch(err) {
+                        alert("AIF Score is " + err);
+                        valid = false;
+                    }
+                }
+                if(valid)
+                {
+                    interview = parseFloat(document.getElementById("interview").value);
+                    x = interview;
+                    try { 
+                        if(x == "")  throw "empty";
+                        if(isNaN(x)) throw "not a number";
+                        x = Number(x);
+                        if(x < 0)  throw "too low";
+                        if(x > 3)   throw "too high";
+                    }
+                    catch(err) {
+                        alert("Interview Score is " + err);
+                        valid = false;
+                    }
                 }
 
-                var x = real;
-                switch (programGroup) {
-                    case 1:
-                        chance = -9.91665E-7 * Math.pow(x, 6) + 7.12766582E-4 * Math.pow(x, 5) - 0.199337541744 * Math.pow(x, 4) + 28.477751641706 * Math.pow(x, 3) - 2221.06905579802 * Math.pow(x, 2) + 90365.708229188 * x - 1505792.89323006;
-                        break;
-                    case 2:
-                        chance = 7.927378E-6 * Math.pow(x, 6) - 0.003815953092 * Math.pow(x, 5) + 0.753733211049 * Math.pow(x, 4) - 77.9121684881 * Math.pow(x, 3) + 4421.4707888 * Math.pow(x, 2) - 129515.4702471 * x + 1507941.8835368;
-                        break;
-                    case 3:
-                        chance = 5.942718E-4 * Math.pow(x, 4) - 0.2085009655 * Math.pow(x, 3) + 27.0594414776 * Math.pow(x, 2) - 1532.9010505906 * x + 31865.616776;
-                        break;
-                    default:
-                        break;
+                if(valid)
+                {
+                    var adjustedAverage = average - adjustment + 16.1;
+                    adjustedAverage = round(adjustedAverage);
+                    var real = adjustedAverage + aif + interview - 4;
+                    real = round(real);
+                    var chance = 0;
+
+                    /*private*/ this.programGroups = ["Biomedical and Software", "Computer, Electrical, Mechanical, Mechatronics, and Systems Design", "Architectural, Chemical, Civil, Environmental, Geological, Management, and Nanotechnology"];
+
+                    document.getElementById("programs").innerHTML = "Your selected program group: " + this.programGroups[programGroup - 1];
+
+                    document.getElementById("adjustedAverage").innerHTML = "Your Adjusted Admission Average is: " + adjustedAverage;
+
+                    document.getElementById("realAdjustedAverage").innerHTML = "Your Adjusted Admission Average including AIF and Interview is: " + real;
+
+                    if(real > 100)
+                    {
+                        real = 100;
+                    }
+
+                    var x = real;
+                    switch (programGroup) {
+                        case 1:
+                            chance = -9.91665E-7 * Math.pow(x, 6) + 7.12766582E-4 * Math.pow(x, 5) - 0.199337541744 * Math.pow(x, 4) + 28.477751641706 * Math.pow(x, 3) - 2221.06905579802 * Math.pow(x, 2) + 90365.708229188 * x - 1505792.89323006;
+                            break;
+                        case 2:
+                            chance = 7.927378E-6 * Math.pow(x, 6) - 0.003815953092 * Math.pow(x, 5) + 0.753733211049 * Math.pow(x, 4) - 77.9121684881 * Math.pow(x, 3) + 4421.4707888 * Math.pow(x, 2) - 129515.4702471 * x + 1507941.8835368;
+                            break;
+                        case 3:
+                            chance = 5.942718E-4 * Math.pow(x, 4) - 0.2085009655 * Math.pow(x, 3) + 27.0594414776 * Math.pow(x, 2) - 1532.9010505906 * x + 31865.616776;
+                            break;
+                        default:
+                            break;
+                    }
+
+                    chance = round(chance);
+                    if(chance > 100)
+                        chance = 100;
+                    else if(chance < 0)
+                        chance = 0;
+
+                    document.getElementById("percent").innerHTML = "Your Chance of Admission* is: " + chance + "%";
                 }
-
-                chance = round(chance);
-                if(chance > 100)
-                    chance = 100;
-                else if(chance < 0)
-                    chance = 0;
-
-                document.getElementById("percent").innerHTML = "Your Chance of Admission* is: " + chance + "%";
-
 
 
             }
