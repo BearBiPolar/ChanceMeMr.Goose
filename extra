@@ -1,0 +1,68 @@
+        <img id="points" alt="Admission Graph">
+        <img id="" alt="Admission Graph">
+
+
+function verify() {
+
+
+                var pro = parseInt(document.getElementById("programGroup").value);
+                var av = document.getElementById("average").value;
+                var ad = parseFloat(document.getElementById("adjustment").value);
+                var ai = parseFloat(document.getElementById("aif").value);
+                var view = parseFloat(document.getElementById("interview").value);
+                if(pro < 0 || pro > 3)
+                {
+                    alert("Error: Your program group has to be between 0-3");
+                }
+                else if(isNaN(pro) || pro.value.length == 0)
+                {
+                    alert("Error: Your program group is not a valid input");
+                }
+                /*
+                    else if(av < 0 || av > 100)
+                    {
+                        alert("Error: Your average has to be between 0-100");
+                    }
+                    else if(isNaN(av) || av.value.length == 0)
+                    {
+                        alert("Error: Your high school average is not a valid input");
+                    }
+                    else if(ad < 0 || ad > 30)
+                    {
+                        alert("Error: Your adjustment factor has to be between 0-30");
+                    }
+                    else if(isNaN(ad) || ad.value.length == 0)
+                    {
+                        alert("Error: Your adjustment factor is not a valid input");
+                    }
+                    else if(ai < 0 || ai > 5)
+                    {
+                        alert("Error: Your AIF Score has to be between 0-5");
+                    }
+                    else if(isNaN(ai) || ai.value.length == 0)
+                    {
+                        alert("Error: Your AIF Score is not a valid input");
+                    }
+                    else if(view < 0 || view > 3)
+                    {
+                        alert("Error: Your Interview Score has to be between 0-3");
+                    }
+                    else if(isNaN(view) || view.value.length == 0 )
+                    {
+                        alert("Error: Your Interview Score is not a valid input");
+                    }
+                    */
+                else
+                {
+                    myFunction();
+                }
+            }
+
+var programGroup = -1;
+                var average = -1;
+                var adjustment = -1;
+                var aif = -1;
+                var interview = -1;
+                
+                
+                
