@@ -9,6 +9,7 @@
         <link rel="stylesheet" type="text/css" href="main.css">
         <title>Chance Me Mr. Goose</title>
         <meta name="description" content="A Waterloo Engineering Admission Chance Calculator.">
+        <link rel="icon" href="engineering.jpg">
 
     </head>
     <body>
@@ -66,12 +67,14 @@
 
         <p>*The predicted chances of admission are derived from William Bishop's graph for Canadians and permanent residents applying from the Ontario Secondary School system for Fall 2020. <a href="https://theroadtoengineering.com/2019/09/26/chances-of-admission-for-fall-2020/">Source</a></p> 
 
-        <small>Disclaimer: This site uses out of date information! The adjustment factors are updated each year and the only list available is 2 years out of date. The blog about AIF scores is six years old and does not reflect how AIFs are currently scored. It is also not possible for applicants to give themselves a score on the interview without knowing how interviews are scored.</small>
+        <small>Disclaimer: <b>This site is simply an admissions simulator and should not be taken seriously!</b> The data used is out of date due to lack of updates from Waterloo. For example, the adjustment factors are updated each year and the only list available is 2 years out of date. The blog about AIF scores is six years old and does not reflect how AIFs are currently scored. It is also not possible for applicants to give themselves a score on the interview without knowing how interviews are scored. The calculations here are as accurate as the story of a Canadian Goose learning to program in Javascript to bring you this website. Use this site at your own discretion. You have been warned! </small>
+        
         <img src="chances.png" alt="Admission Graph">
 
         <h3><center>Click Mr. Goose for Wisdom</center></h3>
         <center><button id="btnSearch" onclick="myFunction()"><img width="100" height="90" src="mrgoose.jpg"></button></center>
-        <center><h3 id="title"></h3>
+        <center>
+            <h3 id="title"></h3>
             <small id="lol"></small>
             <p id="first"></p>
             <div id="points"></div>
@@ -118,6 +121,7 @@
 
 
             }
+
             function calculate() {
 
                 var valid = true;
