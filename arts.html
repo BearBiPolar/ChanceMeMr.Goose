@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <title>Chance Me Mr. Goose</title>
+        <meta name="description" content="A Waterloo Math Admission Chance Calculator.">
+        <link rel="icon" href="math.jpg">
+
+    </head>
+    <body>
+        <img src="sunglasses.jpg" alt="Mr. Goose" width="150" height="200" style="float:right">
+        <h1>Chance Me Mr. Goose &#129414 &#129442</h1>        
+
+
+        <h2>A Waterloo Arts Admission Chance Calculator</h2>
+        <p>Mr. Goose is busy gathering data. Please come back another time :) &#128269 &#129414 &#129442 &#128270</p>
+
+
+        <p><b>Disclaimer:</b> This is in no way an accurate representation of one's chances of admission to Waterloo. Due to the method of gathering the data (through the use of anonymous surveys), the data is likely biased and out-dated. Please use your own discretion, you have been warned!</p>
+        <center>
+            <img src="comingsoon.png" alt="Coming Soon" >
+            <img src="artsbuttons.jpg" alt="Math Admissions Graph" >
+        </center> 
+
+        <!--
+
+
+<p>What is your high school average? (0-100)</p>
+<input type="text" id="average" size="50" placeholder="Please enter your high school average here (0-100)">
+
+
+<div class="button_cont" align="center"><a class="math" target="_blank" rel="nofollow noopener" onclick="myFunction()">Calculate</a></div>
+
+<button onclick="myFunction()">Calculate</button>
+
+-->
+
+
+        <h4 id="programs"></h4>
+
+        <h4 id="adjustedAverage"></h4>
+
+        <h4 id="realAdjustedAverage"></h4>
+
+        <h4 id="percent"></h4>
+
+        <p><small> All images belong to their respective owners. </small></p>
+        <p><small> Copyright © BearBiPolar 2020.</small></p>
+
+        <script>    
+
+            function myFunction()
+            {
+                document.getElementById("percent").innerHTML = "Y";
+                var average = parseFloat(document.getElementById("average").value);
+                var x = average;
+                var chance = 10;
+                chance = 0.5*(1+erf((x-96.44)/(1.62*sqrt(2)));
+                              document.getElementById("percent").innerHTML = "Your Chance of Admission* is: " + chance + "%";
+
+            }
+
+            function erf(x) {
+                // save the sign of x
+                var sign = (x >= 0) ? 1 : -1;
+                x = Math.abs(x);
+
+                // constants
+                var a1 =  0.254829592;
+                var a2 = -0.284496736;
+                var a3 =  1.421413741;
+                var a4 = -1.453152027;
+                var a5 =  1.061405429;
+                var p  =  0.3275911;
+
+                // A&S formula 7.1.26
+                var t = 1.0/(1.0 + p*x);
+                var y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
+                return sign * y; // erf(-x) = -erf(x);
+            }
+            document.getElementById("percent").innerHTML = "Y";
+        </script>
+    </body>
+</html>
