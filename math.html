@@ -20,16 +20,17 @@
 
         <p>In the meantime, check out this 
             <a href="https://www.desmos.com/calculator/m4kqouoqyw">Math Admissions curve</a>
-            . <p>The probability curves were compiled off of self reported averages from past years' Discord servers.</p></p>
-        <br>
+            . <p>The probability curves were compiled off of self reported averages from past years' Discord servers.</p>
 
-        <p><b>Disclaimer:</b> This is in no way an accurate representation of one's chances of admission to Waterloo. Due to the method of gathering the data (through the use of anonymous surveys), the data is likely biased and out-dated. Please use your own discretion, you have been warned!</p>
-        <center>
-            <img src="comingsoon.png" alt="Coming Soon" >
-            <img src="mathgraph.png" alt="Math Admissions Graph" >
-        </center> 
+    <p><b>Disclaimer:</b> This is in no way an accurate representation of one's chances of admission to Waterloo. Due to the method of gathering the data (through the use of anonymous surveys), the data is likely biased and out-dated. Please use your own discretion, you have been warned!</p>
+    <center>
+        <img src="mathgraph.png" alt="Math Admissions Graph" >
+        <img src="davidcheriton.jpg" alt="David R Cheriton School of Computer Science" >
 
-        <!--
+        <img src="comingsoon.png" alt="Coming Soon" >
+    </center> 
+
+    <!--
 
 
 <p>What is your high school average? (0-100)</p>
@@ -43,49 +44,49 @@
 -->
 
 
-        <h4 id="programs"></h4>
+    <h4 id="programs"></h4>
 
-        <h4 id="adjustedAverage"></h4>
+    <h4 id="adjustedAverage"></h4>
 
-        <h4 id="realAdjustedAverage"></h4>
+    <h4 id="realAdjustedAverage"></h4>
 
-        <h4 id="percent"></h4>
+    <h4 id="percent"></h4>
 
-        <p><small> All images belong to their respective owners. </small></p>
-        <p><small> Copyright © BearBiPolar 2020.</small></p>
+    <p><small> All images belong to their respective owners. </small></p>
+    <p><small> Copyright © BearBiPolar 2020.</small></p>
 
-        <script>    
+    <script>    
 
-            function myFunction()
-            {
-                document.getElementById("percent").innerHTML = "Y";
-                var average = parseFloat(document.getElementById("average").value);
-                var x = average;
-                var chance = 10;
-                chance = 0.5*(1+erf((x-96.44)/(1.62*sqrt(2)));
-                              document.getElementById("percent").innerHTML = "Your Chance of Admission* is: " + chance + "%";
-
-            }
-
-            function erf(x) {
-                // save the sign of x
-                var sign = (x >= 0) ? 1 : -1;
-                x = Math.abs(x);
-
-                // constants
-                var a1 =  0.254829592;
-                var a2 = -0.284496736;
-                var a3 =  1.421413741;
-                var a4 = -1.453152027;
-                var a5 =  1.061405429;
-                var p  =  0.3275911;
-
-                // A&S formula 7.1.26
-                var t = 1.0/(1.0 + p*x);
-                var y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
-                return sign * y; // erf(-x) = -erf(x);
-            }
+        function myFunction()
+        {
             document.getElementById("percent").innerHTML = "Y";
-        </script>
+            var average = parseFloat(document.getElementById("average").value);
+            var x = average;
+            var chance = 10;
+            chance = 0.5*(1+erf((x-96.44)/(1.62*sqrt(2)));
+                          document.getElementById("percent").innerHTML = "Your Chance of Admission* is: " + chance + "%";
+
+        }
+
+        function erf(x) {
+            // save the sign of x
+            var sign = (x >= 0) ? 1 : -1;
+            x = Math.abs(x);
+
+            // constants
+            var a1 =  0.254829592;
+            var a2 = -0.284496736;
+            var a3 =  1.421413741;
+            var a4 = -1.453152027;
+            var a5 =  1.061405429;
+            var p  =  0.3275911;
+
+            // A&S formula 7.1.26
+            var t = 1.0/(1.0 + p*x);
+            var y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
+            return sign * y; // erf(-x) = -erf(x);
+        }
+        document.getElementById("percent").innerHTML = "Y";
+    </script>
     </body>
 </html>
