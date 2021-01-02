@@ -31,7 +31,7 @@
                 }
             }
 
-            
+
 
             html
             {
@@ -40,15 +40,15 @@
                 animation: bgcolor 10s infinite;
                 -webkit-animation-direction: alternate;
                 animation-direction: alternate;
-            
+
 
             }
             body {
                 background-image: url("images/waterloo.jpg");
                 padding: 0em 0em 0em;
-                
+
             }
-            
+
             p{
                 padding: 20px;
                 background: rgba(0, 0, 0, 0.6);
@@ -69,6 +69,19 @@
 
             h3{
                 font-size: 20px;
+            }
+
+            button:hover{
+                animation: hue 3s linear infinite;
+            }
+
+            @keyframes hue {
+                0% {
+                    filter: hue-rotate(0deg);
+                }
+                100% {
+                    filter: hue-rotate(360deg);
+                }
             }
 
             .container { 
@@ -118,32 +131,32 @@
                         <h3 style="">Engineering</h3>
                     </button>
                 </a>
-           
-                
+
+
                 <a class="arts" style="hoverbackground: #ffd700;" target="_blank" rel="nofollow noopener" href="arts.html">
                     <button>
                         <img width="215" height="215" src="facultyarts.jpg">
                         <h3>Arts - Coming Soon</h3>
                     </button>
                 </a>
-                
+
                 <h1>Coming Soon</h1>
-                
+
                 <a class="science"  target="_blank" rel="nofollow noopener" href="science.html">
                     <button>
                         <img width="215" height="215" src="facultyscience.png">
                         <h3>Science</h3>
                     </button>
                 </a>
-                
+
                 <a class="ahs"  target="_blank" rel="nofollow noopener" href="ahs.html">
                     <button>
                         <img width="223" height="215" src="facultyahs.png">
                         <h3>Applied Health Science </h3>
-                        
+
                     </button>
                 </a>
-                
+
                 <a class="env"  target="_blank" rel="nofollow noopener" href="environment.html">
                     <button>
                         <img width="215" height="215" src="facultyenv.png">
