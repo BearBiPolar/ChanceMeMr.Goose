@@ -1,6 +1,6 @@
 html {
     background: #e6e9e9;
-    background-image: url("waterloobackground.png");  
+    background-image: url("waterloobackground.png");
 }
 
 body {
@@ -13,10 +13,6 @@ body {
     margin: 0 auto;
     max-width: 65em;
     padding: 1em 1em 2em;
-}
-
-body.hover{
-
 }
 
 h1, h2, h3, h4, h5, h6 {
