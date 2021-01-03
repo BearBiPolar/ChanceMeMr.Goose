@@ -48,19 +48,6 @@ p, strong, small {
     max-width: 95%;
 }
 
-img:hover {
-    animation: hue 3s linear infinite;
-}
-
-@keyframes hue {
-    0% {
-        filter: hue-rotate(0deg);
-    }
-    100% {
-        filter: hue-rotate(360deg);
-    }
-}
-
 .bg {
     /* The image used */
     background-image: url("waterloo.png");
